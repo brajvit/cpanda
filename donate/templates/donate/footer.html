@@ -1,0 +1,51 @@
+{% load staticfiles %}
+
+    <link href="{% static 'fotter/css/font-awesome.min.css' %}" rel="stylesheet">
+     
+    <link href="{% static 'fotter/css/animate.min.css' %}" rel="stylesheet"> 
+
+
+<div class="navbar-default navbar-bottom" role="navigation" style="background-color: #383838">
+<div class="container-fluid" style="height:255px;color: White">
+<div class="navbar-footer" style="color: White">
+<ul class="nav navbar-nav navbar-center">
+<div class="tabbable" style="padding-top: 40px"> <!-- Only required for left/right tabs -->
+<ul class="nav nav-tabs">
+ <li role="presentation" ><a href="{% url 'about' %}" style="color: White"><b>ABOUT US</b></a></li>
+ <li role="presentation"><a href="{% url 'gallery' %}"><b>GALLERY</b></a></li>
+  <li role="presentation"><a href="{% url 'faq' %}"><b>FAQ</b></a></li>
+ <li role="presentation"><a href="{% url 'service' %}"><b>OUR SERVICES</b></a></li>
+  <li role="presentation"><a href="{% url 'term' %}"><b>TERMS OF USE</b></a></li>
+  <li role="presentation"><a href="{% url 'contact' %}"><b>CONTACT US</b></a></li>
+      </ul>
+</div>
+</ul>
+
+</div>
+<div class="social-icons pull-right" style="padding-top:20px">
+
+                        <ul id="icon" class="nav nav-pills">
+                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                            <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href=""><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div> 
+ <div class="col-md-3" style="color: White">
+                    <div class="contact-info bottom">
+                        <h4><b>Contacts</b></h4>
+                       <address>
+                        E-mail: <a href="mailto:vinaykumar.vk2007@gmail.com">email@vulcaninfotech.com</a><br>
+                        Phone: +91 (512)XXXXXXX<br>
+                        Fax: +91 (512)XXXXXXX<br> 
+                        </address>
+</div>
+
+                      </div>
+
+<div class="col-md-3" style="float: right; color: white">
+                        <p><h5>Copyright 2015 all rights are reserved</h5></p>
+                                     </div>
+    
+ 

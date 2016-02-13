@@ -1,0 +1,67 @@
+{% extends "base.html"%}
+
+{% block content %}
+<div class="container-fluid" class="responsive" style="height: auto; width: auto; background-color: grey"><br>
+<h2 style="color:white"><center><b>SERVICE DETAILS <b></center></h2><hr/>
+<div class="container-fluid" style="height:130%; width: auto; color:grey; background-color: PaleTurquoise">
+    
+        
+
+    <div class='col-sm-4'>
+
+         {% load staticfiles %}
+        <div><br>
+			
+			<br>
+                        <ul><br>
+                        
+                             <img src="{{ post.docfile.url }}" style="width:330px; height:220px; border:1px solid brown;class="img-circle" alt="{{ post.docfile.name }}" >
+
+                                
+                                </a></li>
+                        
+                        </ul>
+              
+			
+             
+        </div> 
+        
+    </div>
+
+    <!-- Product Sidebar --> 
+    <div class='col-sm-6'style="padding-left:200px">
+        
+        {% if object.variation_set.count > 1 %}
+            <select class="form-control">
+                {% for vari_obj in object.variation_set.all %}
+                <option value="{{ vari_obj.id }}"> {{ vari_obj }}</option>  
+                {% endfor %}
+            </select>
+        {% endif %}
+        <br/>
+		 
+       
+	    <u><h3 style="color:grey">{{post.title}}.</h3></u>
+        <h3 style="color:brown;"><lable>Available From:</lable></h3>
+       {{post.date_Update}}<br>
+        <h3 style="color:brown;"><lable>Available Till:</lable></h3>
+       {{post.expire_date}}<br> 
+        <h3 style="color:brown;"><lable>Location:</lable></h3>
+       {{post.address}}
+       
+       
+       
+    </div>
+	<div class="row">
+	<div class="col-sm-9">
+	<h3 style="color:brown; padding-top:20px"><lable>Description:</lable></h3>     
+          <p><h4>{{ post.description }}</h4></p>
+		</div>
+      </div> 
+    </div>
+</div>
+{% endblock %}
+
+
+
+
