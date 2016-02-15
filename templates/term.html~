@@ -1,8 +1,16 @@
 {% extends "base.html" %}
+
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}About{% endblock %}
+
+{% block navbar-left %}
+  {% include "_navbar.html" with active_link="term" %}
+{% endblock %}
+
+<!-- Benefits of the Django application -->
 {% block container %}
-{% load staticfiles %}  
-
-
 <img src='{% static "img/term.jpg" %}'class="vertical-center"/>
 </div>
   <div class="container-fluid" style="background-color: #81b1c9">  

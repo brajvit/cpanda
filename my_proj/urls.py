@@ -3,7 +3,9 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 import profiles.urls
-import donate.urls
+import events.urls
+import services.urls
+import products.urls
 import accounts.urls
 from . import views
 
@@ -13,7 +15,9 @@ urlpatterns = [
     url(r'^users/', include(profiles.urls, namespace='profiles')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include(accounts.urls, namespace='accounts')),
-    url(r'^donate/', include(donate.urls, namespace='donate')),
+    url(r'^products/', include(products.urls, namespace='products')),
+    url(r'^services/', include(services.urls, namespace='services')),
+    url(r'^events/', include(events.urls, namespace='events')),
     url(r'^faq/$', 'my_proj.views.faq', name='faq'),
     url(r'^term/$', 'my_proj.views.term', name='term'),
 ]

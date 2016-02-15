@@ -76,7 +76,9 @@ INSTALLED_APPS = (
     'easy_thumbnails',
     'profiles',
     'accounts',
-    'donate',
+    'products',
+    'services',
+    'events'
 )
 
 MIDDLEWARE_CLASSES = (

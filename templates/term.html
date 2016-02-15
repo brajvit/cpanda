@@ -1,8 +1,16 @@
 {% extends "base.html" %}
+
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}About{% endblock %}
+
+{% block navbar-left %}
+  {% include "_navbar.html" with active_link="term" %}
+{% endblock %}
+
+<!-- Benefits of the Django application -->
 {% block container %}
-{% load staticfiles %}  
-
-
 <img src='{% static "img/term.jpg" %}'class="vertical-center"/>
 </div>
   <div class="container-fluid" style="background-color: #81b1c9">  
@@ -171,13 +179,7 @@
         </div>
    </section>
 </div>
-    <script type="text/javascript" src="js/main.js"></script>   
-    <script type="text/javascript" src="{% static 'fotter/js/jquery.countTo.js' %}"></script>
-    <script type="text/javascript" src="{% static 'fotter/js/jquery.js' %}"></script>
-    <script type="text/javascript" src="{% static 'fotter/js/bootstrap.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'fotter/js/lightbox.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'fotter/js/wow.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'fotter/js/main.js' %}"></script>   
+     
 
 {% endblock container %}
 

@@ -1,7 +1,15 @@
 {% extends "base.html" %}
-{% block container %}
-{% load staticfiles %}
 
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}Terms{% endblock %}
+
+{% block navbar-left %}
+  {% include "_navbar.html" with active_link="faq" %}
+{% endblock %}
+<!-- Benefits of the Django application -->
+{% block container %}
 	<link rel="stylesheet" href="{% static 'css/faq.css' %}"> <!-- Resource style -->
 
 <section class="cd-faq1">
