@@ -14,10 +14,12 @@
     <title>{% block title %}{% include "_brandname.html" %} :: {% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
+
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-<link href="{% static 'css/style1.css' %}" rel="stylesheet" type="text/css" />
-<link href="{% static 'css/search.css' %}" rel="stylesheet" type="text/css" />
-<link href="{% static 'css/datetimepicker.css' %}" rel="stylesheet" />
+<link href="{% static 'site/css/style1.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'site/css/search.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'site/css/datetimepicker.css' %}" rel="stylesheet" />
+
 
     <!-- Custom styles for this site -->
    
@@ -123,11 +125,10 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{% static 'js/bootstrap-datetimepicker.js' %}"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-
-    <script src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
+    <script src="{% static 'site/js/bootstrap-datetimepicker.js' %}"></script>
+    <script src="{% static 'site/js/jquery-1.8.3.min.js' %}"></script>
     {% block scripts %}
     {% endblock scripts %}
   </body>

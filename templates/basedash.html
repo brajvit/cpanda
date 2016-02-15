@@ -14,7 +14,6 @@
     <title>{% block title %}{% include "_brandname.html" %} :: {% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
-
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 <link href="{% static 'site/css/style1.css' %}" rel="stylesheet" type="text/css" />
 <link href="{% static 'site/css/search.css' %}" rel="stylesheet" type="text/css" />
@@ -103,25 +102,7 @@
     {% endblock container %}
 
     <!-- Site footer -->
-    {% block footer %}
-      <!-- Some social button for contact will do -->
-      <a name="contact"></a>
-      <div class="container">
-            <div class="footer">
-        <div class="row">
-          <div class="col-lg-6">
-              <p>&copy; Company {% now 'Y' %}</p>
-          </div>
-          <div class="col-lg-6 text-right">
-            Connect with us on
-            <a href="#"><i class="fa fa-facebook"></i> Facebook</a> or
-            <a href="#"><i class="fa fa-twitter"></i> Twitter</a>
-          </div>
-        </div>
-            </div>
-      </div>
-    {% endblock %}
-
+   
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

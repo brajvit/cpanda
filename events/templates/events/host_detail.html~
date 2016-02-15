@@ -1,4 +1,4 @@
-{% extends "base.html"%}
+{% extends "dashboard.html"%}
 
 {% block container %}
 {% load staticfiles %}
@@ -52,7 +52,7 @@
       	
         <h4 style="color:#434343;"><lable><i class="fa fa-home"></i>Location:<lable style="color:#3b5998;"> {{event.place}}</lable></lable></h4>
  
-     <h4 style="color:#434343;">  Edit Event<a class="btn btn-default" href="{% url 'host_edit' pk=event.pk %}"> <i class="fa fa-pencil-square-o"></i>
+     <h4 style="color:#434343;">  Edit Event<a class="btn btn-default" href="#"> <i class="fa fa-pencil-square-o"></i>
 </a>  </h4>  
     </div>
 	<div class="row">

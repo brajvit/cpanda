@@ -3,6 +3,7 @@ from .models import Event
 from .forms import EventForm, HostForm
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
+
 from django.template import RequestContext
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
@@ -22,7 +23,7 @@ def event(request):
             event.save()
 
             # Redirect to the document list after POST
-            return redirect('events.views.event')
+            return redirect(events.views.event)
     else:
         form = EventForm() # A empty, unbound form
     
@@ -83,7 +84,7 @@ def host_edit(request,pk):
             event.user = request.user
             event.save()
             # Redirect to the document list after POST
-            return redirect('events.views.host_detail', pk=event.pk)
+            return redirect('events.views.event')
     else:
         form = HostForm(instance=event) # A empty, unbound form
 # Render list page with the documents and the form
