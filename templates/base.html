@@ -21,6 +21,7 @@
 <link href="{% static 'site/css/datetimepicker.css' %}" rel="stylesheet" />
 
 
+
     <!-- Custom styles for this site -->
    
 
@@ -47,7 +48,7 @@
           </button>
           <a class="navbar-brand" href="{% url 'home' %}">
             {% block navbar-brand %}
-              <img src="{% static 'site/img/logo.png' %}" alt="logo">
+
               {% include "_brandname.html" %}
             {% endblock %}
           </a>

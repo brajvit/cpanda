@@ -1,8 +1,20 @@
-{% extends "base.html"%}
-{% block container %}
-<!DOCTYPE html>
-{% load crispy_forms_tags %}
+{% extends 'base.html' %}
+
 {% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+
+
+{% block container %}
+
+
+
+
+{% block jumbotron2 %}
+
+
+
 <head>
 
 <script language="javascript">
@@ -48,7 +60,7 @@ function resumeDiv() {
                 <!-- List of uploaded documents -->
  <div class="container-fluid" style="color:grey; background-color:#E10985; height:115px"><br>
  <p style="font-size:40px; padding-left:70px;padding-top:30px; color:white;"> CONNECT</p>
-   </div>
+   </div>{% endblock %}
 <br><br>
  <div class="container-fluid">
 <div class='row'>

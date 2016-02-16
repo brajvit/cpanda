@@ -11,7 +11,7 @@ class Service(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL,
                                 primary_key=True)
     title  = models.CharField(max_length=120)
-    docfile = models.FileField(upload_to='Service/%Y/%m/%d')
+    docfile = models.FileField(upload_to='Service/%Y/%m/%d',blank=True, null=True)
     description = models.CharField(default=False, max_length=160)
     active = models.BooleanField(default=True)
     duraction  = models.CharField(max_length=120)

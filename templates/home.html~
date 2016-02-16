@@ -23,7 +23,7 @@
 {% endblock %}
 
 {% block splash %}
-<br><br><br><br>
+<br>
   <div class="jumbotron jumbotron-carousel corporate-jumbo">
 <div class="column large-10 large-centered text-center">
             <p style="padding-top:7px">

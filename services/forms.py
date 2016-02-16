@@ -1,19 +1,15 @@
 from django import forms
 from django.contrib.auth.models import User
-from services.models import Service
 from datetimewidget.widgets import DateTimeWidget, DateWidget, TimeWidget 
+from services.models import Service
 
-
-class ServiceForm(forms.Form): 
-	
+class ServiceForm(forms.Form):
     title = forms.CharField(
         label='Title', widget=forms.TextInput(attrs={'placeholder': 'Provide service name'})
-    )
-    
+    )    
     description = forms.CharField(
         label='Description', widget=forms.TextInput(attrs={'placeholder': 'Some details about your service'})
-    )  
-    
+    )     
     duraction = forms.CharField(
         label='Duration', widget=forms.TextInput(attrs={'placeholder': 'Time  schedule of service'})
     )
@@ -32,3 +28,12 @@ class ServiceForm(forms.Form):
         label='Are you sure to publish'
     )
    
+class OfferForm(forms.ModelForm):
+
+    class Meta:
+        model = Service
+        fields = ('title', 'description', 'active', 'duraction', 'address', 'docfile', 'zip_Code', 'expire_date', )
+
+
+
+

@@ -90,3 +90,11 @@ def host_edit(request,pk):
 # Render list page with the documents and the form
     return render(request,
         'events/hostevent.html',{'form': form})
+
+
+@login_required
+def devent_detail(request):
+    model = Event
+    event = Event.objects.filter(user_id = request.user.id)
+    return render(request,  'events/detail.html', {'event': event })
+

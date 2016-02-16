@@ -36,8 +36,7 @@ body>.navbar-transparent {
 }
 
 .navbar-nav>li>a.profile-menu {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    
 }
 
 .navbar-nav>.btn{
