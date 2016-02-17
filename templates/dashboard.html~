@@ -1,4 +1,4 @@
-<br><br>
+<br><br><br>
  {% include "basedash.html" %}
 {% load thumbnail %}
 {% load staticfiles %}
@@ -27,7 +27,8 @@
 
 <link href="{% static 'site/css/style1.css' %}" rel="stylesheet" type="text/css" />
 <link href="{% static 'site/css/main.css' %}" rel="stylesheet" type="text/css"/>
-<link href="{% static 'site/css/custom.css' %}" rel="stylesheet" type="text/css" />  
+<link href="{% static 'site/css/custom.css' %}" rel="stylesheet" type="text/css" /> 
+<link href="{% static 'site/css/datetimepicker.css' %}" rel="stylesheet" > 
   <!-- FONTAWESOME STYLES-->
 <link href="{% static 'site/css/font-awesome.css' %}" rel="stylesheet" type="text/css" />
 
@@ -42,12 +43,9 @@
    <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collaps">
                 <ul class="nav" id="main-menu">
-				<li class="text-center" style="background:#8FC73E;padding-top:5px">
-                     {% load staticfiles %}
- 
-                        
-                 <li>     <center>  
-                  <img title="profile picture" class="img-circle img-responsive" src="{% thumbnail user.profile.picture|default:'default_profile.png' 140x140 crop %}"> 
+  {% load staticfiles %}
+				<li  style="padding-top:10px"> <center>            
+  <img title="profile picture" class="img-circle img-responsive" src="{% thumbnail user.profile.picture|default:'default_profile.png' 140x140 crop %}"> 
 </center></li><li style="color:white"><center>{{ user.get_full_name|truncatechars:20 }}</center></li>
 						 <li >
                      <a href="# "><i class="fa fa-comments fa-2x"></i> MESSAGE</a>
@@ -108,13 +106,9 @@
 
         
 	   <!-- SCRIPT-->
-<script src="{% static 'site/js/jquery-1.8.3.min.js' %}"></script>
-<script src="{% static 'site/js/bootstrap-datetimepicker.js' %}"></script>
-<script src="{% static 'site/js/jquery-1.10.2.js' %}"></script>
-<script src="{% static 'site/js/bootstrap.min.js' %}"></script>
-<script src="{% static 'site/js/jquery.metisMenu.js' %}"></script>
-<script src="{% static 'site/js/custom.js' %}"></script>
 
+<script src="{% static 'site/js/bootstrap-datetimepicker.js' %}"></script>
+<script src="{% static 'site/js/jquery-1.8.3.min.js' %}"></script>
 
 
 

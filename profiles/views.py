@@ -7,6 +7,7 @@ from . import forms
 from . import models
 
 
+
 class ShowProfile(LoginRequiredMixin, generic.TemplateView):
     template_name = "profiles/show_profile.html"
     http_method_names = ['get']

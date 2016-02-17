@@ -1,19 +1,22 @@
 {% extends "base.html" %}
 
-{% load staticfiles %}
 {% load crispy_forms_tags %}
 
 {% block title %}{{ block.super }}Terms{% endblock %}
 
 {% block navbar-left %}
-  {% include "_navbar.html" with active_link="about" %}
+  {% include "_navbar.html" with active_link="faq" %}
 {% endblock %}
-<!-- Benefits of the Django application -->
 {% block container %}
-	<link rel="stylesheet" href="{% static 'css/faq.css' %}"> <!-- Resource style -->
+{% load staticfiles %}
+<!-- Benefits of the Django application -->
+
+	<link rel="stylesheet" href="{% static 'site/css/faq.css' %}">
+
+ <!-- Resource style -->
 
 <section class="cd-faq1">
-<img src='{% static "img/faq.jpg" %}' class="img-responsive"/>
+<img src='{% static "site/img/faq.jpg" %}' class="img-responsive"/>
 </section>
 		
 <section class="cd-faq">
@@ -237,12 +240,9 @@
 	<a href="#0" style="color:#428BCA" class="cd-close-panel">Close</a>
 </section> <!-- cd-faq -->
 </div>
-
-
-
-<script src="{% static 'js/jquery-2.1.1.js' %}"></script>
-<script src="{% static 'js/jquery.mobile.custom.min.js' %}"></script>
-<script src="{% static 'js/main.js' %}"></script> <!-- Resource jQuery -->
+<script type="text/javascript" src="{% static 'site/js/jquery-2.1.1.js' %}"></script>
+<script type="text/javascript" src="{% static 'site/js/jquery.mobile.custom.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'site/js/main.js' %}"></script> <!-- Resource jQuery -->
 
 {% endblock %}
 

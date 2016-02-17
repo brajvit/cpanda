@@ -1,16 +1,18 @@
 from django.shortcuts import render
 from .models import Event
 from .forms import EventForm, HostForm
+from . import forms
+from . import models
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
-
+from django.conf.urls import patterns, include, url
+from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
 # Create your views here.
 
 
-@login_required
 def event(request):
     model = Event
     event = Event.objects.all()
@@ -54,7 +56,7 @@ def host(request):
             event.save()
 
             # Redirect to the document list after POST
-            return redirect('events.views.host_detail', pk=event.pk)
+            return redirect('/events/detail/{{event.pk}}/')
     else:
         form = EventForm() # A empty, unbound form
 
@@ -81,10 +83,10 @@ def host_edit(request,pk):
     if request.method == 'POST':
         form = HostForm(request.POST,request.FILES, instance=event )
         if form.is_valid():
-            event.user = request.user
+            event = form.save(commit=False)
             event.save()
             # Redirect to the document list after POST
-            return redirect('events.views.event')
+            return redirect('/events/')
     else:
         form = HostForm(instance=event) # A empty, unbound form
 # Render list page with the documents and the form

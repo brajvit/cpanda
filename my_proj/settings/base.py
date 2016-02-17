@@ -121,6 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = join(BASE_DIR, '..', 'site', 'static')
 
 ALLOWED_HOSTS = []
 

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load staticfiles %}
+
 {% load crispy_forms_tags %}
 
 {% block title %}{{ block.super }}About{% endblock %}
@@ -11,8 +11,20 @@
 
 <!-- Benefits of the Django application -->
 {% block container %}
+{% load staticfiles %}
+<link href="{% static 'site/css/bootstrap.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'site/css/bootstrap.min.css'  %}" type="text/css" />
+<link href="{% static 'site/css/bootstrap-theme.css' %}" type="text/css" />
+<link href="{% static 'site/css/bootstrap-theme.min.css' %}" type="text/css" />
+<link href="{% static 'site/css/bootstrap.css' %}" rel="stylesheet" type="text/css" />
+     <!-- CUSTOM STYLES-->
 
-<img src= "{% static 'img/about.png' %}" class="vertical-center"/>
+<link href="{% static 'site/css/style1.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'site/css/main.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'site/css/custom.css' %}" rel="stylesheet" type="text/css" />  
+  <!-- FONTAWESOME STYLES-->
+<link href="{% static 'site/css/font-awesome.css' %}" rel="stylesheet" type="text/css" />
+<img src= "{% static 'site/img/about.png' %}" class="vertical-center"/>
 </div>
 <div class="container-fluid" style="background-color: #81b1c9">
 
@@ -20,7 +32,7 @@
         <div class="container-fluid">
 
                 <div class="col-sm-5">
-                    <img src= "{% static 'img/abt.png' %}"  style="height:290px;width:450px"  class="img-responsive" alt=""/>
+                    <img src= "{% static 'site/img/abt.png' %}"  style="height:290px;width:450px"  class="img-responsive" alt=""/>
                 </div>
                 <div class="col-sm-7">
                     <p > Community Panda aims to create a social community platform dedicated to combining the idea of local exchanges and services with grander scale charities.  The goal of this website is to enable people to connect with their communities and allow them to exchange goods for free or with a price—hopefully a price that will be donated straight to charity. 
@@ -37,7 +49,7 @@
                 <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
                     <div class="single-service">
                         <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="300ms">
-                            <img src="{% static 'fotter/images/aboutus/logo3.png' %}" alt="">
+                            <img src="{% static 'site/img/logo3.png' %}" alt="">
                         </div>
                         <h2>Charity</h2>
                         <p >It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business.</p>
@@ -46,7 +58,7 @@
                 <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="single-service">
                         <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="600ms">
-                            <img src="{% static 'fotter/images/aboutus/h11.jpg' %}" alt="">
+                            <img src="{% static 'site/img/h11.jpg' %}" alt="">
                         </div>
                         <h2>Funding</h2>
                         <p >It's time to re-think charity.It's time to give charity the big-league freedoms we really give to business.</p>
@@ -55,7 +67,7 @@
                 <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="900ms">
                     <div class="single-service">
                         <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="900ms">
-                            <img src="{% static 'fotter/images/aboutus/we3.jpeg' %}" alt="">
+                            <img src="{% static 'site/img/we3.jpeg' %}" alt="">
                         </div>
                         <h2 >Social-Event</h2>
                         <p >Venison tongue, salami corned beef ball tip meatloaf bacon. Fatback pork belly bresaola tenderloin bone pork kevin shankle.</p>
@@ -104,7 +116,7 @@
                                 <div class="team-single-wrapper">
                                     <div class="team-single">
                                         <div class="person-thumb">
-                                            <img src="{% static 'fotter/images/aboutus/1.jpg' %}" class="img-responsive" alt="">
+                                            <img src="{% static 'site/img/1.jpg' %}" class="img-responsive" alt="">
                                         </div>
                                         <div class="social-profile">
                                             <ul class="nav nav-pills">
@@ -124,7 +136,7 @@
                                 <div class="team-single-wrapper">
                                     <div class="team-single">
                                         <div class="person-thumb">
-                                            <img src="{% static 'fotter/images/aboutus/2.jpg' %}" class="img-responsive" alt="">
+                                            <img src="{% static 'site/img/2.jpg' %}" class="img-responsive" alt="">
                                         </div>
                                         <div class="social-profile">
                                             <ul class="nav nav-pills">
@@ -144,7 +156,7 @@
                                 <div class="team-single-wrapper">
                                     <div class="team-single">
                                         <div class="person-thumb">
-                                            <img src="{% static 'fotter/images/aboutus/3.jpg' %}" class="img-responsive" alt="">
+                                            <img src="{% static 'site/img/3.jpg' %}" class="img-responsive" alt="">
                                         </div>
                                         <div class="social-profile">
                                             <ul class="nav nav-pills">
@@ -164,7 +176,7 @@
                                 <div class="team-single-wrapper">
                                     <div class="team-single">
                                         <div class="person-thumb">
-                                            <img src="{% static 'fotter/images/aboutus/1.jpg' %}" class="img-responsive" alt="">
+                                            <img src="{% static 'site/img/1.jpg' %}" class="img-responsive" alt="">
                                         </div>
                                         <div class="social-profile">
                                             <ul class="nav nav-pills">
@@ -186,7 +198,7 @@
                                 <div class="team-single-wrapper">
                                     <div class="team-single">
                                         <div class="person-thumb">
-                                            <img src="{% static 'fotter/images/aboutus/4.jpg' %}" class="img-responsive" alt="">
+                                            <img src="{% static 'site/img/4.jpg' %}" class="img-responsive" alt="">
                                         </div>
                                         <div class="social-profile">
                                             <ul class="nav nav-pills">
@@ -206,7 +218,7 @@
                                 <div class="team-single-wrapper">
                                     <div class="team-single">
                                         <div class="person-thumb">
-                                            <img src="{% static 'fotter/images/aboutus/3.jpg' %}" class="img-responsive" alt="">
+                                            <img src="{% static 'site/img/3.jpg' %}" class="img-responsive" alt="">
                                         </div>
                                         <div class="social-profile">
                                             <ul class="nav nav-pills">
@@ -226,7 +238,7 @@
                                 <div class="team-single-wrapper">
                                     <div class="team-single">
                                         <div class="person-thumb">
-                                            <img src="{% static 'fotter/images/aboutus/2.jpg' %}" class="img-responsive" alt="">
+                                            <img src="{% static 'site/img/2.jpg' %}" class="img-responsive" alt="">
                                         </div>
                                         <div class="social-profile">
                                             <ul class="nav nav-pills">
@@ -246,7 +258,7 @@
                                 <div class="team-single-wrapper">
                                     <div class="team-single">
                                         <div class="person-thumb">
-                                            <img src="{% static 'fotter/images/aboutus/1.jpg' %}" class="img-responsive" alt="">
+                                            <img src="{% static 'site/img/1.jpg' %}" class="img-responsive" alt="">
                                         </div>
                                         <div class="social-profile">
                                             <ul class="nav nav-pills">
@@ -326,11 +338,10 @@
 </div>
 </div></div>
     </div></div>
-    <script type="text/javascript" src="{% static 'fotter/js/jquery.js' %}"></script>
-
-    <script type="text/javascript" src="{% static 'fotter/js/lightbox.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'fotter/js/wow.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'fotter/js/main.js' %}"></script> 
+    <script type="text/javascript" src="{% static 'site/js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'site/js/lightbox.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'site/js/wow.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'site/js/main.js' %}"></script> 
  </body>
 </html>
 {% endblock container%}

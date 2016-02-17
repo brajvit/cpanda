@@ -1,8 +1,8 @@
 {% extends "base.html"%}
 {% block container %}
 {% load staticfiles %}
-
-        <body><br><br><br>
+{% load thumbnail %}
+        <body><br><br><br><br>
                 <!-- List of uploaded documents -->
                   <div class="container-fluid" style="width: auto; height:auto; color:grey; background : #F7F7F7) no-repeat center top">
 
@@ -34,15 +34,15 @@
 
 <div class='row'>
 <div class="col-md-10">
-     <div class="col-md-5"><h4><b>Post On </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</h4></div>
+     <div class="col-md-5"><h4><b>Post On </b></h4></div><div class ="col-md-1"><h4>:</h4></div>
     <div class="col-md-5"><h4 style="font-size:20px">{{ object.date_created|date:"d M Y" }}</h4></div>
  
 
 
-   <div class="col-sm-5"><h4><b>Expire On </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</h4></div>
+   <div class="col-sm-5"><h4><b>Expire On </b></h4></div><div class ="col-md-1"><h4>:</h4></div>
     <div class="col-md-5"><h4 style="font-size:20px">{{object.expire_date|date:"d M Y"}}</h4></div> 
 
-   <div class="col-md-5"><h4><b>Zipcode</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</h4></div>
+   <div class="col-md-5"><h4><b>Zipcode</b></h4></div><div class ="col-md-1"><h4>:</h4></div>
     <div class="col-md-5"><h4 style="font-size:20px" >{{  object.zip_Code }}</h4></div> 
 </div></div> 
 </div> </div> 
@@ -50,35 +50,27 @@
 <div class="homed">
 <div class='row'>
 <div class="col-md-10">
-   <div class="col-md-5"><h4><b> Available </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</h4></div>
+   <div class="col-md-5"><h4><b> Available </b></h4></div><div class ="col-md-1"><h4>:</h4></div>
     <div class="col-md-5"><h4 style="font-size:20px" >{{ object.quantity }} Unit</h4></div> 
 
-   <div class="col-md-5"><h4> <b>Location</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</h4></div>
-    <div class="col-md-6"><h4 style="font-size:20px" >{{ object.address }}</h4></div> 
+   <div class="col-md-5"><h4> <b>Location</b></h4></div><div class ="col-md-1"><h4>:</h4></div>
+    <div class="col-md-5"><h4 style="font-size:20px" >{{ object.address }}</h4></div> 
 </div></div>
 </div> 
 
 <a href="/products/enquiry/{{ object.user}}/"><h2 class='btn btn-default btn-block' style="background-color:#8FC73E;color:#ffffff;font-size:15px">{{object.user}}</h2></a> <br>
-{% if document %}
 
- {% for document in document %}
 <div class="homepd">
 <div class="homep"> 
-<a href=#event style="color:#428BCA">   <h4 style="padding-left:20px" data-toggle="modal" id='rim' data-target="#event">  <img src="{{ document.docfile.url }}" class="img-circle" id="circle" alt="{% static 'assets/img/find_user.png' %}" width="100px" height="100px"/>&nbsp;&nbsp;{{document.firstname}}&nbsp;{{ document.lastname}}</h4></a>
-                      {% endfor %}
-
-                        {% else %}
-<div class="homepd">
-<div class="homep"> 
-                     <h4 style="padding-left:20px"> <img id="blah" src="{% static 'assets/img/find_user.png' %}" class="img-circle" id="circle"   alt="your selected item" width="100px" height="100px"style="border:1px groove;"/></img>&nbsp;&nbsp;&nbsp;&nbsp;Unknown</h4>              {% endif %}
+                     <h4 style="padding-left:20px"> <img id="blah" src="{% thumbnail user.profile.picture|default:'default_profile.png' 140x140 crop %}"" class="img-circle" id="circle"   alt="your selected item" width="100px" height="100px"style="border:1px groove;"/></img>&nbsp;&nbsp;&nbsp;&nbsp;{{ user.get_full_name|truncatechars:20 }}</h4>             
  </div>
 <p style="padding-left:112px;">Share on social media</p><center>
-<a href="https://www.facebook.com/sharer/sharer.php?u=http://vinayvit.pythonanywhere.com/products/" target="_blank"><img src="{% static 'img/facebook.png' %}" class="img-inline-responsive"/></a> 
+<a href="https://www.facebook.com/sharer/sharer.php?u=http://vinayvit.pythonanywhere.com/products/" target="_blank"><img src="{% static 'site/img/facebook.png' %}" class="img-inline-responsive"/></a> 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<a href="https://twitter.com/home?status=Hi%20going%20to%20charity%20of%20this%20...%20Come%20build%20a%20donation%20apsp%20with%20me!%20%23Echarity%20and%20%40vinay%20http%3A%2F%2Fvinayvit.pythonanywhere.com%2Fproducts%2F/" target="_blank"><img src="{% static 'img/Twitter.png' %}" class="img-inline-responsive"/></a>
+	<a href="https://twitter.com/home?status=Hi%20going%20to%20charity%20of%20this%20...%20Come%20build%20a%20donation%20apsp%20with%20me!%20%23Echarity%20and%20%40vinay%20http%3A%2F%2Fvinayvit.pythonanywhere.com%2Fproducts%2F/" target="_blank"><img src="{% static 'site/img/Twitter.png' %}" class="img-inline-responsive"/></a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<a href="https://www.linkedin.com/shareArticle?mini=true&url=http://vinayvitpythonanywhere.com/products/2F%26title%3DBe%20first%20and%20Charity%20%20for%20Humanity%20!%0AShare%20on%20Linkedin%0A%3C%2Fa%3E%0A" target="_blank"><img src="{% static 'img/in.png' %}" class="img-inline-responsive"/></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<a href='https://plus.google.com/share?url=http://vinayvit.echarity.com/products/' target="_blank"><img src="{% static 'img/gplus1.png' %}" class="img-inline-responsive"/></a>&nbsp;&nbsp;</center></div>
+	<a href="https://www.linkedin.com/shareArticle?mini=true&url=http://vinayvitpythonanywhere.com/products/2F%26title%3DBe%20first%20and%20Charity%20%20for%20Humanity%20!%0AShare%20on%20Linkedin%0A%3C%2Fa%3E%0A" target="_blank"><img src="{% static 'site/img/in.png' %}" class="img-inline-responsive"/></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href='https://plus.google.com/share?url=http://vinayvit.echarity.com/products/' target="_blank"><img src="{% static 'site/img/gplus1.png' %}" class="img-inline-responsive"/></a>&nbsp;&nbsp;</center></div>
 </div><div class='col-sm-1'></div>
 </div>
 {% for document in document %}

@@ -1,25 +1,16 @@
-{% extends 'base.html' %}
-
-{% load staticfiles %}
-{% load crispy_forms_tags %}
-
-
-
-
+{% extends "base.html"%}
 {% block container %}
+<!DOCTYPE html>
 
-
-
-
-{% block jumbotron2 %}
-
-
-
+    {% load staticfiles %}
 <head>
+
+<link href="{% static 'bootstrap/css/datetimepicker.css' %}" rel="stylesheet" type="text/css" />
+<script src="{% static 'bootstrap/js/bootstrap-datetimepicker.js' %}"></script>
+<script src="{% static 'bootstrap/js/jquery-1.8.3.min.js' %}"></script>
 
 <script language="javascript">
 ScrollRate = 50;
-
 function scrollDiv_init() {
 	DivElmnt = document.getElementById('MyDivName');
 	ReachedMaxScroll = false;
@@ -56,6 +47,8 @@ function resumeDiv() {
 }
 </script>
 </head>
+{% load crispy_forms_tags %}
+{% block jumbotron2 %}
    <body><br>
                 <!-- List of uploaded documents -->
  <div class="container-fluid" style="color:grey; background-color:#E10985; height:115px"><br>
@@ -102,14 +95,15 @@ function resumeDiv() {
 
   {{ form|crispy }}
 
- {% if request.user.is_authenticated %}
-                        <div class="col-md-5"></div><div class="col-md-7">
+         
+  {% if not user.is_authenticated %}
+<div class="col-md-5"></div><div class="col-md-7"><button type="button" class="btn btn-info btn-lg" onclick="alert('Login first for Publish Event')">Submit Event</button>
+</div>
+{% else %}
+ <div class="col-md-5"></div><div class="col-md-7">
                         <input type="image" src='{% static "img/submit.png" %}' /></div><br><br>
                 </form>
-{% else %}
-
-<div class="col-md-5"></div><div class="col-md-7"><button type="button" class="btn btn-info btn-lg" onclick="alert('Login first for Publish Event')">Submit Event</button>
-</div><br><br>
+<br><br>
 {% endif %}<br><br>
 </div>
 <div class="col-md-2"></div>

@@ -121,11 +121,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = join(BASE_DIR, '..', 'site', 'static')
 
 ALLOWED_HOSTS = []
 
 # Crispy Form Theme - Bootstrap 3
-CRISPY_TEMPLATE_PACK = 'bootstrap3'
+CRISPY_TEMPLATE_PACK = 'bootstrap'
 
 # For Bootstrap 3, change error alert to 'danger'
 from django.contrib import messages
