@@ -12,6 +12,8 @@ from django.shortcuts import redirect
 # Create your views here.
 from .forms import ProductForm, PostForm
 from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
+from django.http import *
 
 # Create your views here.
 class ProductListView(ListView):
@@ -86,7 +88,7 @@ def post_edit(request, pk):
 ########################################################################################## show the list of login user donate items history
 @login_required
 def post_history(request):
-    model = Product, User
+    model = Product
     posts = Product.objects.filter(user_id = request.user.id)
     return render(request, 'products/post_list.html', {'posts': posts })
 
@@ -108,7 +110,7 @@ def list(request):
         if form.is_valid():
             newdoc = Product(user = request.user, title = request.POST['title'], docfile = request.FILES['docfile'], active = request.POST['active'], description = request.POST['description'], quantity = request.POST['quantity'], zip_Code = request.POST['zip_Code'], address = request.POST['address'], expire_date = request.POST['expire_date'])
             newdoc.save()
-            return redirect('products.views.post_detail_list', pk=newdoc.pk)
+            return HttpResponseRedirect(reverse('products:post_detail_list',args=(post.pk,)))
     else:
         form = ProductForm() # A empty, unbound form
 
@@ -139,7 +141,8 @@ def post_edit_list(request, pk):
         if form.is_valid():
             post.user = request.user
             post.save()
-            return redirect('products.views.post_detail_list', pk=post.pk)
+            return HttpResponseRedirect(reverse('products:post_detail_list',args=(post.pk,)))
+
     else:
         form = PostForm(instance=post)
     return render(request, 'products/post_edit.html', {'form': form })

@@ -10,6 +10,8 @@ from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
+from django.http import HttpResponseRedirect
+from django.http import *
 # Create your views here.
 
 
@@ -25,7 +27,7 @@ def event(request):
             event.save()
 
             # Redirect to the document list after POST
-            return redirect(events.views.event)
+            return redirect('events.views.event')
     else:
         form = EventForm() # A empty, unbound form
     
@@ -48,6 +50,7 @@ def event_detail(request, pk):
 
 @login_required
 def host(request):
+    model = Event
     # Handle file upload
     if request.method == 'POST':
         form = EventForm(request.POST , request.FILES)
@@ -56,17 +59,15 @@ def host(request):
             event.save()
 
             # Redirect to the document list after POST
-            return redirect('/events/detail/{{event.pk}}/')
+            return HttpResponseRedirect(reverse('events:host_detail',args=(event.pk,)))
     else:
         form = EventForm() # A empty, unbound form
 
    # Load documents for the list page
-    event = Event.objects.all()   
 
     # Render list page with the documents and the form
     return render_to_response(
-        'events/hostevent.html',
-        {'event': event,'form': form},
+        'events/hostevent.html',{'form': form},
         context_instance=RequestContext(request)
     )
 
@@ -76,6 +77,7 @@ def host_detail(request, pk):
     event = get_object_or_404(Event, pk=pk)
     return render(request,  'events/host_detail.html', {'event': event })
 
+@login_required
 def host_edit(request,pk):
     model = Event
     event = get_object_or_404(Event, pk=pk)    
@@ -83,10 +85,10 @@ def host_edit(request,pk):
     if request.method == 'POST':
         form = HostForm(request.POST,request.FILES, instance=event )
         if form.is_valid():
-            event = form.save(commit=False)
+            event.user = request.user
             event.save()
             # Redirect to the document list after POST
-            return redirect('/events/)
+            return HttpResponseRedirect(reverse('events:host_detail',args=(event.pk,)))
     else:
         form = HostForm(instance=event) # A empty, unbound form
 # Render list page with the documents and the form

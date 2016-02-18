@@ -27,8 +27,7 @@
 
 <link href="{% static 'site/css/style1.css' %}" rel="stylesheet" type="text/css" />
 <link href="{% static 'site/css/main.css' %}" rel="stylesheet" type="text/css"/>
-<link href="{% static 'site/css/custom.css' %}" rel="stylesheet" type="text/css" /> 
-<link href="{% static 'site/css/datetimepicker.css' %}" rel="stylesheet" > 
+<link href="{% static 'site/css/custom.css' %}" rel="stylesheet" type="text/css" />  
   <!-- FONTAWESOME STYLES-->
 <link href="{% static 'site/css/font-awesome.css' %}" rel="stylesheet" type="text/css" />
 
@@ -106,9 +105,15 @@
 
         
 	   <!-- SCRIPT-->
-
-<script src="{% static 'site/js/bootstrap-datetimepicker.js' %}"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 <script src="{% static 'site/js/jquery-1.8.3.min.js' %}"></script>
+<script src="{% static 'site/js/bootstrap-datetimepicker.js' %}"></script>
+<script src="{% static 'site/js/jquery-1.10.2.js' %}"></script>
+<script src="{% static 'site/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'site/js/jquery.metisMenu.js' %}"></script>
+<script src="{% static 'site/js/custom.js' %}"></script>
+
 
 
 

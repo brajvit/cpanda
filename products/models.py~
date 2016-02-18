@@ -9,7 +9,7 @@ from django.conf import settings
 # Create your models here.
 
 class Product(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL,
+    user = models.OneToManyField(settings.AUTH_USER_MODEL,
                                 primary_key=True)
     title  = models.CharField(max_length=120)
     docfile = models.FileField(upload_to='Product/%Y/%m/%d',blank=True, null=True)

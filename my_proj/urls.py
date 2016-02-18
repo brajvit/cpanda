@@ -20,7 +20,9 @@ urlpatterns = [
     url(r'^events/', include(events.urls, namespace='events')),
     url(r'^faq/$', 'my_proj.views.faq', name='faq'),
     url(r'^term/$', 'my_proj.views.term', name='term'),
+    url(r'^contact/$','my_proj.views.contact', name='contact'),
 ]
+
 
 # User-uploaded files like profile pics need to be served in development
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

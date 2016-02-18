@@ -8,7 +8,7 @@ from django.db import models
 from django.conf import settings
 # Create your models here.
 class Service(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL,
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
                                 primary_key=True)
     title  = models.CharField(max_length=120)
     docfile = models.FileField(upload_to='Service/%Y/%m/%d',blank=True, null=True)

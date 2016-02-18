@@ -6,6 +6,9 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
+from django.http import *
 
 def servicelist(request):
     model = Service
@@ -28,7 +31,7 @@ def offer(request):
         if form.is_valid():
             newdoc = Service(user = request.user, title = request.POST['title'], docfile = request.FILES['docfile'], active = request.POST['active'], description = request.POST['description'], duraction = request.POST['duraction'], zip_Code = request.POST['zip_Code'], address = request.POST['address'], expire_date = request.POST['expire_date'])
             newdoc.save()
-            return redirect('services.views.offer_detail_service', pk=newdoc.pk)
+            return HttpResponseRedirect(reverse('services:offer_detail_service',args=(post.pk,)))
      else:
         form = ServiceForm() # A empty, unbound form
 
@@ -60,7 +63,8 @@ def edit_service(request, pk):
         if form.is_valid():
             post.user = request.user
             post.save()
-            return redirect('service_detail_home', pk=post.pk)
+            return HttpResponseRedirect(reverse('services:offer_detail_service',args=(post.pk,)))
+
     else:
         form = OfferForm(instance=post)
     return render(request,

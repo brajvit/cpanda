@@ -16,6 +16,15 @@ STATICFILES_DIRS = [join(BASE_DIR, 'static')]
 MEDIA_ROOT = join(BASE_DIR, 'media')
 MEDIA_URL = "/media/"
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'vinaykumar.vk2007@gmail.com'
+EMAIL_HOST_PASSWORD = '8090289260'
+EMAIL_PORT = 587
+
+
+
 # Use Django templates using the new Django 1.8 TEMPLATES settings
 TEMPLATES = [
     {

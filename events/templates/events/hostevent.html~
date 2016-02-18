@@ -2,7 +2,11 @@
 {% block container %}
 {% load crispy_forms_tags %}
 {% load staticfiles %}
-<link href="{% static 'site/css/datetimepicker.css' %}" rel="stylesheet" />
+
+<link href="{% static 'css/datetimepicker.css' %}" rel="stylesheet" />
+<script src="{% static 'js/bootstrap-datetimepicker.js' %}"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+
    <body>
 <div class="container-fluid" class="responsive" style="height: auto; width: auto; background-color: grey">
 <h2 style="color:white"><center><b>Host Event<b></h2></center>
