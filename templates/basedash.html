@@ -83,24 +83,15 @@
     </div>
     {% endblock navbar %}
 
-    {% block messages %}
-      {% if messages %}
-        {% for message in messages %}
-          <div class="alert alert-{{ message.tags }}">  <!-- singular -->
-            <a class="close" data-dismiss="alert">×</a>
-            {{ message|safe }}
-          </div>
-        {% endfor %}
-      {% endif %}
-    {% endblock %}
-
-    {% block splash %}
-    {% endblock splash %}
+    
     
     {% block container %}
    
     {% endblock container %}
 
+
+    {% block splash %}
+    {% endblock splash %}
     <!-- Site footer -->
    
     <!-- Bootstrap core JavaScript

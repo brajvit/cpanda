@@ -14,7 +14,6 @@ from .forms import ProductForm, PostForm
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.http import *
-
 # Create your views here.
 class ProductListView(ListView):
     model = Product
@@ -52,6 +51,7 @@ class ProductListView(ListView):
 
 ################################################################################## for show detail of product mail and dashboard
 #Product Detail view for showing detail of products............
+
 class ProductDetailView(DetailView):
     model = Product
     def product_detail_view_func(request, id):
@@ -69,6 +69,7 @@ class ProductDetailView(DetailView):
         return render(request, template, context)
 
 ######################################################################################## for edit your product item fr history edit and product edit
+
 @login_required
 def post_edit(request, pk):
     post = get_object_or_404(Product, pk=pk)
@@ -86,6 +87,7 @@ def post_edit(request, pk):
 
 
 ########################################################################################## show the list of login user donate items history
+
 @login_required
 def post_history(request):
     model = Product
@@ -103,6 +105,7 @@ def post_detail_history(request, pk):
     return render(request, 'products/product_detail_history.html', {'post': post })
 
 ########################################################################################## show detail of recent donateitem
+
 @login_required
 def list(request):
     if request.method == 'POST':
@@ -123,6 +126,7 @@ def list(request):
     )
 
 ##################################################################################
+
 @login_required
 def post_detail_list(request, pk):
     model = Product
@@ -133,6 +137,7 @@ def post_detail_list(request, pk):
 
 
 ################################################################################## edit form for history item
+
 @login_required
 def post_edit_list(request, pk):
     post = get_object_or_404(Product, user_id=request.user.id, pk=pk)

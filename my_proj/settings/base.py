@@ -7,8 +7,11 @@ https://docs.djangoproject.com/en/dev/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
+
+import os
 from django.core.urlresolvers import reverse_lazy
 from os.path import dirname, join, exists
+import sys
 
 # Build paths inside the project like this: join(BASE_DIR, "directory")
 BASE_DIR = dirname(dirname(dirname(__file__)))
@@ -44,7 +47,11 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
-                'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.core.context_processors.request',
+
+		'django.contrib.messages.context_processors.messages',
             ],
         },
     },
@@ -69,25 +76,31 @@ SECRET_KEY = env('SECRET_KEY')
 
 ALLOWED_HOSTS = []
 
+import os #add this to import os
+APP_PATH = os.path.dirname(os.path.abspath(__file__))
+
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.auth',
+
     'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    #'django.contrib.sites',
+    'django.contrib.auth',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'authtools',
+    #'django_messages',
     'crispy_forms',
     'easy_thumbnails',
     'profiles',
     'accounts',
     'products',
     'services',
-    'events'
+    'events',
+    'djangoChat'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -98,7 +111,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.core.files.uploadhandler.MemoryFileUploadHandler",
+    "django.core.files.uploadhandler.TemporaryFileUploadHandler"
 )
+
 
 ROOT_URLCONF = 'my_proj.urls'
 
@@ -106,11 +122,12 @@ WSGI_APPLICATION = 'my_proj.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-
+	
 DATABASES = {
-    # Raises ImproperlyConfigured exception if DATABASE_URL not in
-    # os.environ
-    'default': env.db(),
+    'default': {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': '%s/sampleapp_db' %APP_PATH, # We need to specify the full path as per Django 1.4
+    }
 }
 
 # Internationalization
@@ -136,6 +153,8 @@ ALLOWED_HOSTS = []
 
 # Crispy Form Theme - Bootstrap 3
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+
 
 # For Bootstrap 3, change error alert to 'danger'
 from django.contrib import messages

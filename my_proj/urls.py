@@ -7,6 +7,7 @@ import events.urls
 import services.urls
 import products.urls
 import accounts.urls
+#from django_messages.views import *
 from . import views
 
 urlpatterns = [
@@ -15,12 +16,19 @@ urlpatterns = [
     url(r'^users/', include(profiles.urls, namespace='profiles')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include(accounts.urls, namespace='accounts')),
+    #url('^', include('follow.urls')),
+    #url(r'^messages/', include('django_messages.urls')),
     url(r'^products/', include(products.urls, namespace='products')),
     url(r'^services/', include(services.urls, namespace='services')),
     url(r'^events/', include(events.urls, namespace='events')),
     url(r'^faq/$', 'my_proj.views.faq', name='faq'),
     url(r'^term/$', 'my_proj.views.term', name='term'),
     url(r'^contact/$','my_proj.views.contact', name='contact'),
+   # url(r'^', include(follow.urls, namespace='follow')),
+    #url(r'^event/enquiry/(?P<recipient>[\w.@+-]+)/$', 'django_messages.views.enquiry', name='messages_compose_to'),
+   # url(r'^service/enquiry/(?P<recipient>[\w.@+-]+)/$', 'django_messages.views.enquiry', name='messages_compose_to'),
+    #url(r'product/enquiry/(?P<recipient>[\w.@+-]+)/$', 'django_messages.views.enquiry', name='messages_compose_to'),
+    url(r'^chat/', include('djangoChat.urls')),
 ]
 
 

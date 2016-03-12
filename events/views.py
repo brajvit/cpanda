@@ -27,7 +27,7 @@ def event(request):
             event.save()
 
             # Redirect to the document list after POST
-            return redirect('events.views.event')
+            return redirect('/events/')
     else:
         form = EventForm() # A empty, unbound form
     
